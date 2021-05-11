@@ -47,8 +47,8 @@ def plot_func(psmc_file_list, bin_size, mutation_rate, generation_time, x_min, x
         (estimated_times, estimated_sizes) = psmc_fun(PSMC_RESULT, bin_size, mutation_rate, generation_time)
         ax.step(estimated_times, estimated_sizes, where = 'post', linestyle = "-", color = line_color, linewidth = line_width)
 
-    ax.set_xlabel("Time in years (g = 20, μ = 4.78 x 10^-9)")
-    ax.set_ylabel("Effective size (x 10^4)")
+    ax.set_xlabel("Time in years (g = %d, μ = %.2e)" %(generation_time, mutation_rate))
+    ax.set_ylabel("Effective size")
     ax.ticklabel_format(axis = 'y', style = 'sci', scilimits = (-2,2))
     ax.grid(False)
     ax.set_xlim(x_min, x_max)
