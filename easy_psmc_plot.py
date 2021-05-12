@@ -44,8 +44,13 @@ def plot_func(psmc_file_list, bin_size, mutation_rate, generation_time, x_min, x
         i = i.rstrip()
         PSMC_RESULT = str(i.split("\t")[0])
         line_color = str(i.split("\t")[1])
+        line_label = str(i.split("\t")[2])
         (estimated_times, estimated_sizes) = psmc_fun(PSMC_RESULT, bin_size, mutation_rate, generation_time)
-        ax.step(estimated_times, estimated_sizes, where = 'post', linestyle = "-", color = line_color, linewidth = line_width)
+        ax.step(estimated_times, estimated_sizes, \
+             where = 'post', linestyle = "-", \
+                 color = line_color, \
+                     label = line_label if line_label not in plt.gca().get_legend_handles_labels()[1] else '',\
+                          linewidth = line_width)
 
     ax.set_xlabel("Time in years (g = %d, μ = %.2e)" %(generation_time, mutation_rate))
     ax.set_ylabel("Effective size")
