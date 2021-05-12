@@ -8,10 +8,7 @@
 * sample_1.diploid.psmc	#e9c46a label1
 * sample_2.diploid.psmc	#ff7c7c label2
 
-# example 
-```
-python easy_psmc_plot.py --psmc_file_list sample_list.txt --mutation_rate 6.5e-9 --generation_time 1 --x_max 7e4 --y_max 0.5e4 --x_min 1e3 --span_min 1.5e3 --span_max 1.9e3 --span_color yellow
-```
+
 # command line
 ```
 python easy_psmc_plot.py --help
@@ -45,4 +42,9 @@ Options:
   --help                     Show this message and exit.
 
 ```
-
+# example 
+```
+python easy_psmc_plot.py --psmc_file_list sample_list.txt --mutation_rate 6.5e-9 --generation_time 1 --x_max 7e4 --y_max 0.5e4 --x_min 1e3 --span_min 1.5e3 --span_max 1.9e3 --span_color yellow
+```
+# example result
+![](https://github.com/shengxinzhuan/easy_psmc_plot/blob/main/example_result.png)
