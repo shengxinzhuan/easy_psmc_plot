@@ -29,10 +29,14 @@ import matplotlib.pyplot as plt
 @click.option("--length", default=10, type = float, help="Length of the plot(Default:10)")
 @click.option("--height", default=5, type = float, help="Height of the plot(Default:5)")
 @click.option("--picture_dpi", default=300, type= int, help="Output picture dpi(Default:300)")
+@click.option("--span_min", default=0, type = float, help="the span of xlim selection region's min value(Default:None)")
+@click.option("--span_max", default=0, type = float, help="the span of xlim selection region's max value(Default:None)")
+@click.option("--span_color", prompt = 'purple', help = "the span color(Default:purple)")
+@click.option("--span_alpha", default = 0.3, type = float, help = "the span clolor transparency(Default:0.3)")
 #====================================================================================================================
 # Plot function
 #====================================================================================================================
-def plot_func(psmc_file_list, bin_size, mutation_rate, generation_time, x_min, x_max, y_min, y_max, line_width, length, height, picture_dpi):
+def plot_func(psmc_file_list, bin_size, mutation_rate, generation_time, x_min, x_max, y_min, y_max, line_width, length, height, picture_dpi, span_min, span_max, span_color, span_alpha):
     # Read file list
     psmc_file = open(psmc_file_list, "r")
 
@@ -60,6 +64,8 @@ def plot_func(psmc_file_list, bin_size, mutation_rate, generation_time, x_min, x
     ax.set_ylim(y_min, y_max)
     plt.legend(loc = "best")
     ax.set_xscale('log')
+    if span_max != float(0) or span_min != float(0):
+        plt.axvspan(xmin = span_min, xmax = span_max, facecolor = span_color, alpha = span_alpha)
     plt.savefig("psmc.plot.pdf", dpi = picture_dpi)
 
 #====================================================================================================================
