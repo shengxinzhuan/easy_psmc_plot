@@ -1,7 +1,7 @@
 # easy_psmc_plot
 
 * this script is aim to plot the PSMC result by an easy way
-* To use this script, "click" and "matplotlib" are required in the path
+* To use this script, "click" and "matplotlib" are required in the path( Python version > 2.7)
 * Usage: python easy_psmc_plot.py --psmc_file_list sample.list
 
 # input format(sample name , color and label which seperate by tab)
